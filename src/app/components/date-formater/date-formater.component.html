@@ -1,0 +1,47 @@
+<div class="container-fluid mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-12 bg-success">
+      <form>
+        <div class="row">
+
+          <div class="mb-2 col-lg-6">
+            <label class="col-12 fs-4 mb-2" for="datePicker">Selecciona una fecha a convertir</label>
+            <input class="form-control" type="date" name="datePicker" [(ngModel)]="datePicker">
+          </div>
+          
+          <div class="mb-2 col-lg-6">
+            <label class="col-12 fs-4 mb-2" for="dateText">Selecciona una fecha a convertir</label>
+            <input class="form-control" type="text" placeholder="yyyy-mm-dd" name="dateText" [(ngModel)]="dateText">
+          </div>
+
+        </div>
+      </form>
+      <hr/>
+      <div class="row">
+        <div class="col-lg-6">
+          <pre>Fecha ingresada: {{ datePicker }}</pre>
+          <div *ngIf="datePicker" class="fw-bold">
+            <pre>Format MMMM Do YYYY, h:mm:ss a {{ datePicker | moment: 'F' : 'MMMM Do YYYY, h:mm:ss a'}}</pre>
+            <pre>Format dddd: {{ datePicker | moment: 'F' : 'dddd'}}</pre>
+            <pre>Format MMM Do YY: {{ datePicker | moment: 'F' : 'MMM Do YY'}}</pre>
+            <pre>Format full dateTime: {{ datePicker | moment: 'F'}}</pre>
+            <pre>{{ datePicker | moment: 'R'}}</pre>
+            <pre>Substract 2 days: {{ datePicker | moment: 'C': 'S': 2}}</pre>
+            <pre>Add 3 days: {{ datePicker | moment: 'C': 'A': 3}}</pre>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <pre>Fecha ingresada: {{ dateText }}</pre>
+          <div *ngIf="dateText" class="fw-bold">
+            <pre>Format MMMM Do YYYY, h:mm:ss a {{ dateText | moment: 'F' : 'MMMM Do YYYY, h:mm:ss a'}}</pre>
+            <pre>Format dddd: {{ dateText | moment: 'F' : 'dddd'}}</pre>
+            <pre>Format MMM Do YY: {{ dateText | moment: 'F' : 'MMM Do YY'}}</pre>
+            <pre>Format full dateTime: {{ dateText | moment: 'F'}}</pre>
+            <pre>{{ dateText | moment: 'R'}}</pre>
+            <pre>Substract 2 days: {{ dateText | moment: 'C': 'S': 2}}</pre>
+            <pre>Add 3 days: {{ dateText | moment: 'C': 'A': 3}}</pre>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
